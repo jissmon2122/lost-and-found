@@ -80,7 +80,7 @@ export function LostItemForm({ district, venue }: LostItemFormProps) {
     // Send lost item to backend
     try {
       const token = localStorage.getItem("token")
-      const res = await fetch("http://localhost:5000/api/lost", {
+      const res = await fetch(`${API_BASE_URL}/api/lost`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

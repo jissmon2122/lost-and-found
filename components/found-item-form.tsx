@@ -127,7 +127,7 @@ export function FoundItemForm({ district, venue }: FoundItemFormProps) {
 
     // Send found item to backend
     try {
-      const res = await fetch("http://localhost:5000/api/found", {
+      const res = await fetch(`${API_BASE_URL}/api/found`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

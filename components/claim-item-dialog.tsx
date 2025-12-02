@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useToast } from "@/hooks/use-toast"
+import { API_BASE_URL } from "@/lib/api"
 // import removed: userStorage
 import type { FoundItem } from "@/lib/types"
 import { securityQuestions } from "@/lib/data"
@@ -67,7 +68,7 @@ export function ClaimItemDialog({ item, open, onOpenChange }: ClaimItemDialogPro
     if (matchScore >= 67) {
       // Fetch finder's information from backend
       try {
-        const res = await fetch(`http://localhost:5000/api/user/${item.userId}`)
+        const res = await fetch(`${API_BASE_URL}/api/user/${item.userId}`)
         const finder = await res.json()
         if (res.ok && finder) {
           setVerificationResult({

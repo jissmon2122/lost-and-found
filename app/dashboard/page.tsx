@@ -37,8 +37,8 @@ export default function DashboardPage() {
         const headers: HeadersInit = {}
         if (token) headers["Authorization"] = `Bearer ${token}`
         const [lostRes, foundRes] = await Promise.all([
-          fetch("http://localhost:5000/api/lost", { headers }),
-          fetch("http://localhost:5000/api/found", { headers })
+          fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/lost`, { headers }),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/found`, { headers })
         ])
         const lostData = await lostRes.json()
         const foundData = await foundRes.json()

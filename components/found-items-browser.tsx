@@ -32,7 +32,7 @@ export function FoundItemsBrowser({ district, venue }: FoundItemsBrowserProps) {
         const token = localStorage.getItem("token")
         const headers: HeadersInit = {}
         if (token) headers["Authorization"] = `Bearer ${token}`
-        const res = await fetch(`http://localhost:5000/api/found?districtId=${district.id}&venueId=${venue.id}`, { headers })
+        const res = await fetch(`${API_BASE_URL}/api/found?districtId=${district.id}&venueId=${venue.id}`, { headers })
         const data = await res.json()
         setFoundItems(data)
         setFilteredItems(data)
